@@ -1,48 +1,1015 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>동아리방에 지금 누가 있나요? | Who is at the club room?</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/maxswjeon.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2
-						<aside class="notes">
-						<p>Some notes</p>
-						</aside>
-						<p>Some slide text</p>
-						<aside class="notes">
-						<p>and some more notes</p>
-					</aside>
-				</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    <script src="plugin/notes/notes.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        important: true,
+      };
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/6a0c65fb34.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Enable Click to all sildes
+      window.addEventListener("load", function () {
+        [...document.querySelectorAll("section")]
+          .filter((e) => !e.classList.contains("no-click"))
+          .forEach((slide) => {
+            slide.addEventListener("click", Reveal.next);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="cover flex justify-between items-center no-click">
+          <div>
+            <h1 class="leading-[0.75]">
+              동아리방에 지금 누가 있나요?<br />
+              <span class="sub text-4xl">Who is in the club room?</span>
+            </h1>
+            <p>
+              Freeradius부터 ARP Scanner까지<br />
+              <span class="sub">From Freeradius to ARP Scanner</span>
+            </p>
+          </div>
+          <div>
+            <div onclick="Reveal.next()" class="door">
+              <div class="door-front">
+                <div class="knob"></div>
+              </div>
+              <div class="door-back"></div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1 class="text-left">
+            발표자 소개
+            <span class="sub text-4xl">Speaker Information</span>
+          </h1>
+          <div class="flex gap-6 items-center">
+            <img
+              alt="Sangwan Jeon's Profile Picture"
+              src="/assets/profile.jpg"
+              class="max-w-[300px]"
+            />
+            <div class="flex flex-col h-[384px]">
+              <div class="flex w-[500px]">
+                <div>
+                  <h2 class="text-left">
+                    전상완 <span class="sub text-2xl">Sangwan Jeon</span>
+                  </h2>
+                  <ul class="text-lg">
+                    <li>연세대학교 전기전자공학부 학부생</li>
+                    <li>YCC (Yonsei Computer Club) 임원진</li>
+                  </ul>
+                </div>
+                <div class="grow"></div>
+                <div>
+                  <img
+                    alt="https://app.sli.do/event/eMg1YyHjegm9KN9qpbB5T5"
+                    src="/assets/slido.png"
+                    class="max-w-[150px]"
+                  />
+                  <p>Q&A</p>
+                </div>
+              </div>
+              <div class="grow"></div>
+              <ul class="text-lg list-none m-0">
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <a href="mailto:maxswjeon@codingbear.kr"
+                    >maxswjeon@codingbear.kr</a
+                  >
+                </li>
+                <li><i class="fa-brands fa-github"></i> maxswjeon</li>
+                <li><i class="fa-brands fa-instagram"></i> maxswjeon</li>
+                <li><i class="fa-brands fa-linkedin"></i> maxswjeon</li>
+                <li>
+                  <i class="fa-solid fa-square-rss"></i>
+                  <a href="https://blog.codingbear.kr" target="_blank"
+                    >https://blog.codingbear.kr</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>
+            발표 주제 <span class="sub text-4xl">Presentation Topic</span>
+          </h1>
+          <div class="flex justify-between align-center">
+            <img
+              alt="Demo Site Screenshot"
+              src="/assets/demo.jpg"
+              class="w-[400px]"
+            />
+            <div class="flex flex-col justify-center">
+              <ol class="inline-block text-2xl">
+                <li>동아리방에 있는 WiFi에 802.1x을 적용하는 방법</li>
+                <li>
+                  WiFi를 이용해 동아리방에 누가 있는지<br />
+                  실시간으로 확인할 수 있는 서비스를 구축하는 방법
+                </li>
+              </ol>
+              <ol class="inline-block sub text-xl mt-3">
+                <li>Applying 802.1x to the WiFi in the club room</li>
+                <li>
+                  Making a service that can check <br />
+                  who is in the club room in real time using WiFi
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1 class="leading-[0.75]">
+            그런게 왜 필요했는데?<br />
+            <span class="sub text-2xl">Why did you need a such a thing?</span>
+          </h1>
+          <h2 class="text-left">Reason 1</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <img
+              alt="Yonsei Computer Club Notice Kakao Talk Room"
+              src="/assets/chatroom.jpg"
+            />
+            <div>
+              <p>회원수 188명의 대형 동아리</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide03">
+          <h1 class="leading-[0.75]">
+            그런게 왜 필요했는데?<br />
+            <span class="sub text-2xl">Why did you need a such a thing?</span>
+          </h1>
+          <h2 class="text-left">Reason 1</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img
+                alt="Yonsei Computer Club Talking about the WiFi Password Leak"
+                src="/assets/leak.jpg"
+              />
+            </div>
+            <div>
+              <p>비밀번호 유출 사건의 발생</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide03">
+          <h1 class="leading-[0.75]">
+            그런게 왜 필요했는데?<br />
+            <span class="sub text-2xl">Why did you need a such a thing?</span>
+          </h1>
+          <h2 class="text-left">Reason 1</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img
+                alt="Yonsei Computer Club Talking about the WiFi Password Leak"
+                src="/assets/leak.jpg"
+              />
+            </div>
+            <div class="text-left">
+              <p>비밀번호 유출 사건의 발생</p>
+              <p>=> 주기적으로 비밀번호를 바꾸는 방법</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide03">
+          <h1 class="leading-[0.75]">
+            그런게 왜 필요했는데?<br />
+            <span class="sub text-2xl">Why did you need a such a thing?</span>
+          </h1>
+          <h2 class="text-left">Reason 1</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img
+                alt="Yonsei Computer Club Talking about the WiFi Password Leak"
+                src="/assets/leak.jpg"
+              />
+            </div>
+            <div class="text-left">
+              <p>비밀번호 유출 사건의 발생</p>
+              <p>=> 주기적으로 비밀번호를 바꾸는 방법</p>
+              <p>=> 아니면, 부원마다 다른 비밀번호를?</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide03">
+          <h1 class="leading-[0.75]">
+            그런게 왜 필요했는데?<br />
+            <span class="sub text-2xl">Why did you need a such a thing?</span>
+          </h1>
+          <h2 class="text-left">Reason 2</h2>
+          <div
+            class="flex flex-wrap justify-around items-center h-[320px] bg-[#bacee0]"
+          >
+            <img
+              alt="A chat asking who is at the club room 1"
+              src="/assets/who1.png"
+            />
+            <img
+              alt="A chat asking who is at the club room 2"
+              src="/assets/who2.png"
+            />
+            <img
+              alt="A chat asking who is at the club room 3"
+              src="/assets/who3.png"
+            />
+            <img
+              alt="A chat asking who is at the club room 4"
+              src="/assets/who4.png"
+            />
+            <img
+              alt="A chat asking who is at the club room 5"
+              src="/assets/who5.png"
+            />
+            <p class="text-4xl font-bold text-[#2b2b2b] w-[364px] text-center">
+              반복되는 질문
+            </p>
+          </div>
+        </section>
+        <section>
+          <h1>
+            비밀번호 유출 문제 해결하기<br />
+            <span class="sub text-2xl">Solving the password leak problem</span>
+          </h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide04">
+          <h1>해결 방법들 <span class="sub text-2xl">Solutions</span></h1>
+          <ol>
+            <li>주기적으로 비밀번호를 바꾼다</li>
+          </ol>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide04">
+          <h1>해결 방법들 <span class="sub text-2xl">Solutions</span></h1>
+          <ol>
+            <li><s>주기적으로 비밀번호를 바꾼다</s></li>
+          </ol>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide04">
+          <h1>해결 방법들 <span class="sub text-2xl">Solutions</span></h1>
+          <ol>
+            <li><s>주기적으로 비밀번호를 바꾼다</s></li>
+            <li>부원마다 다른 비밀번호를 부여한다</li>
+          </ol>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide05">
+          <h1>
+            WiFi 인증 방식<br />
+            <span class="sub text-2xl">WiFi Authentication Methods</span>
+          </h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide05">
+          <h1>
+            WiFi 인증 방식<br />
+            <span class="sub text-2xl">WiFi Authentication Methods</span>
+          </h1>
+          <h2 class="text-left">Open</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img
+                alt="A WiFi network with no password"
+                src="/assets/open.jpg"
+              />
+            </div>
+            <div class="text-left">
+              <p>비밀번호가 없는 WiFi</p>
+              <p>- 누구나 접속 가능</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide05">
+          <h1>
+            WiFi 인증 방식<br />
+            <span class="sub text-2xl">WiFi Authentication Methods</span>
+          </h1>
+          <h2 class="text-left">PSK (Pre-Shared Key)</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img
+                alt="A WiFi network with pre-shared key"
+                src="/assets/psk.jpg"
+              />
+            </div>
+            <div class="text-left">
+              <p>비밀번호가 있는 WiFi</p>
+              <p>- 비밀번호를 알면 접속 가능</p>
+              <p>- 비밀번호 유출 시 제지할 수 있는 수단이 없음</p>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide05">
+          <h1>
+            WiFi 인증 방식<br />
+            <span class="sub text-2xl">WiFi Authentication Methods</span>
+          </h1>
+          <h2 class="text-left">EAP (Extensible Authentication Protocol)</h2>
+          <div class="flex gap-12 items-center h-[320px]">
+            <div class="w-[426px] flex justify-center">
+              <img alt="A WiFi network with EAP" src="/assets/eap.jpg" />
+            </div>
+            <div class="text-left">
+              <p>로그인 방식의 WiFi</p>
+              <p>- 개인에게 할당된 비밀번호가 다름</p>
+              <p>- 비밀번호 유출 시 제지할 수 있는 수단이 있음</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>802.1x</h1>
+          <p>
+            로컬 영역 네트워크에서 상대 기기와 연결하는 기기에 대한 인증을
+            제공하는 방식을 정의한 표준
+          </p>
+        </section>
+        <section>
+          <img alt="An ipTime router setup page" src="/assets/ipTime.jpg" />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide07">
+          <h1>RADIUS?</h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide07">
+          <h1>RADIUS?</h1>
+          <p>Remote Authentication Dial In User Service</p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide07">
+          <h1>RADIUS?</h1>
+          <p>Remote Authentication Dial In User Service</p>
+          <p>
+            네트워크 자원에 대한 접근을 인증(Authenticate)하고
+            허가(Authorize)하며 관리(Accounting)
+          </p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide07">
+          <h1>RADIUS?</h1>
+          <p>Remote Authentication Dial In User Service</p>
+          <p>
+            네트워크 자원에 대한 접근을 인증(Authenticate)하고
+            허가(Authorize)하며 관리(Accounting)
+          </p>
+          <p>802.1x 위에서 인증을 담당하는 서버</p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide08">
+          <div class="flex justify-between h-[400px]">
+            <div class="flex justify-around items-center w-1/6"></div>
+            <div class="flex justify-around items-center w-1/6"></div>
+            <div
+              data-id="RADIUS Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-blue-500"
+            >
+              RADIUS Server
+            </div>
+            <div class="w-1/6"></div>
+            <div class="w-1/6"></div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide08">
+          <div class="flex justify-between h-[400px]">
+            <div class="flex justify-around items-center w-1/6"></div>
+            <div class="flex justify-around items-center w-1/6"></div>
+            <div
+              data-id="RADIUS Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-blue-500"
+            >
+              RADIUS Server
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-2"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="802.1x Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-gray-500"
+            >
+              802.1x
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide08">
+          <div class="flex justify-between h-[400px]">
+            <div class="flex justify-around items-center w-1/6">
+              <div
+                data-id="File Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                File
+              </div>
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-1"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="RADIUS Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-blue-500"
+            >
+              RADIUS Server
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-2"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="802.1x Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-gray-500"
+            >
+              802.1x
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide08">
+          <div class="flex justify-between h-[400px]">
+            <div class="flex flex-col justify-around items-center w-1/6">
+              <div
+                data-id="LDAP Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                LDAP
+              </div>
+              <div
+                data-id="File Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                File
+              </div>
+              <div
+                data-id="SQL Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                SQL Database
+              </div>
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-1"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="RADIUS Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-blue-500"
+            >
+              RADIUS Server
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-2"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="802.1x Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-gray-500"
+            >
+              802.1x
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide08">
+          <div class="flex justify-between h-[400px]">
+            <div class="flex flex-col justify-around items-center w-1/6">
+              <div
+                data-id="LDAP Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500 border-8 border-red-500"
+              >
+                LDAP
+              </div>
+              <div
+                data-id="File Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                File
+              </div>
+              <div
+                data-id="SQL Box"
+                class="flex justify-center items-center w-full h-12 rounded-lg bg-yellow-500"
+              >
+                SQL Database
+              </div>
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-1"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="RADIUS Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-blue-500"
+            >
+              RADIUS Server
+            </div>
+            <div
+              class="flex justify-center items-center w-1/6"
+              data-id="arrow-2"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div
+              data-id="802.1x Box"
+              class="flex justify-center items-center w-1/6 rounded-lg bg-gray-500"
+            >
+              802.1x
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide09">
+          <h1>LDAP</h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide09">
+          <h1>LDAP</h1>
+          <p>Lightweight Directory Access Protocol</p>
+        </section>
+        <section>
+          <h1>Why LDAP?</h1>
+          <p>RADIUS를 포함한 여러 서비스들이 User Federation 용도로 사용</p>
+        </section>
+        <section>
+          <img
+            class="w-2/3 m-auto"
+            alt="Screenshot of a Keycloak LDAP configuration"
+            src="/assets/keycloak.png"
+          />
+        </section>
+        <section>
+          <h1>LDAP Entry Structure</h1>
+          <img
+            class="w-2/3 m-auto"
+            alt="Screenshot of a LDAP entry"
+            src="/assets/LDAP.jpg"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide10">
+          <h1>
+            컨테이너 구조 <span class="sub text-2xl">Container Structure</span>
+          </h1>
+          <div
+            class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+          >
+            <div
+              class="flex justify-center items-center border-4 border-solid border-white rounded-lg w-2/5"
+              data-id="slide11-container-certbot"
+            >
+              <h2 class="text-2xl">Certbot</h2>
+            </div>
+            <div
+              class="flex justify-center items-center border-4 border-solid border-white rounded-lg w-2/5"
+              data-id="slide11-container-postgres"
+            >
+              <h2 class="text-2xl">PostgreSQL</h2>
+            </div>
+            <div
+              class="flex justify-center items-center border-4 border-solid border-white rounded-lg w-2/5"
+              data-id="slide11-container-openldap"
+            >
+              <h2 class="text-2xl">OpenLDAP</h2>
+            </div>
+            <div
+              class="flex justify-center items-center border-4 border-solid border-white rounded-lg w-2/5"
+              data-id="slide11-container-freeradius"
+            >
+              <h2 class="text-2xl">FreeRadius</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide10">
+          <h1>
+            컨테이너 구조 <span class="sub text-2xl">Container Structure</span>
+          </h1>
+          <div
+            class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+          >
+            <div
+              class="border-4 border-solid border-white rounded-lg w-full p-6"
+              data-id="slide11-container-certbot"
+            >
+              <h2 class="text-2xl text-left">Certbot</h2>
+              <p class="text-left text-xl">
+                OpenLDAP의 TLS 설정에 필요한 Certificate를 발급하고 갱신한다<br />
+                <span class="sub">
+                  Issues and Renews Certificate for TLS settings of OpenLDAP
+                </span>
+              </p>
+              <div class="mt-3">
+                <h3 class="text-xl text-left">Entrypoint</h3>
+                <p class="text-base text-left">/docker-entrypoint.sh</p>
+                <ol class="text-base text-left w-full">
+                  <li>Certificate 존재 확인</li>
+                  <li>Certificate이 없으면 발급</li>
+                  <li>Container 상태를 Healthy로 변경</li>
+                  <li>24시간마다 인증서 갱신 시도</li>
+                </ol>
+              </div>
+              <div class="mt-3 flex gap-6">
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Volume Mounts</h3>
+                  <ul class="text-base w-full">
+                    <li>./data/certbot&#8203;:/etc/letsencrypt</li>
+                    <li>./data/certs&#8203;:/certs</li>
+                    <li>
+                      ./scripts/certbot/docker-entrypoint.sh&#8203;:/docker-entrypoint.sh
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Port Exposure</h3>
+                  <p class="text-base text-left">None</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide10">
+          <h1>
+            컨테이너 구조 <span class="sub text-2xl">Container Structure</span>
+          </h1>
+          <div
+            class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+          >
+            <div
+              class="border-4 border-solid border-white rounded-lg w-full p-6"
+              data-id="slide11-container-postgres"
+            >
+              <h2 class="text-2xl text-left">PostgreSQL</h2>
+              <p class="text-left text-xl">
+                FreeRadius의 인증 기록과 Accounting 기록을 저장한다<br />
+                <span class="sub">
+                  Stores FreeRadius authentication and accounting records
+                </span>
+              </p>
+              <div class="mt-3 flex gap-6">
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Volume Mounts</h3>
+                  <ul class="text-base w-full">
+                    <li>./data/database&#8203;:/data</li>
+                    <li>
+                      ./scripts/database/initdb.d<br />:/docker-entrypoint-initdb.d
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Port Exposure</h3>
+                  <ul class="text-base w-full">
+                    <li>5432</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide10">
+          <h1>
+            컨테이너 구조 <span class="sub text-2xl">Container Structure</span>
+          </h1>
+          <div
+            class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+          >
+            <div
+              class="border-4 border-solid border-white rounded-lg w-full p-6"
+              data-id="slide11-container-openldap"
+            >
+              <h2 class="text-2xl text-left">OpenLDAP</h2>
+              <p class="text-left text-xl">
+                FreeRadius을 통해 접근할 수 있는 유저들의 정보를 저장한다<br />
+                <span class="sub">
+                  Stores user information that can be accessed through
+                  FreeRadius
+                </span>
+              </p>
+              <div class="mt-3">
+                <h3 class="text-xl text-left">Entrypoint</h3>
+                <ol class="text-base text-left w-full">
+                  <li>기본 Organization과 Readonly User 생성</li>
+                  <li>Samba Schema 적용</li>
+                </ol>
+              </div>
+              <div class="mt-3 flex gap-6">
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Volume Mounts</h3>
+                  <ul class="text-base w-full">
+                    <li>./data/ldap&#8203;:/var/lib/openldap</li>
+                    <li>./config/ldap&#8203;:/etc/openldap/slapd.d</li>
+                    <li>./data/dhparam&#8203;:/dhparam</li>
+                    <li>./scripts/ldap&#8203;/assets/custom-scripts</li>
+                  </ul>
+                </div>
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Port Exposure</h3>
+                  <ul class="text-base w-full">
+                    <li>389</li>
+                    <li>636</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide10">
+          <h1>
+            컨테이너 구조 <span class="sub text-2xl">Container Structure</span>
+          </h1>
+          <div
+            class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+          >
+            <div
+              class="border-4 border-solid border-white rounded-lg w-full p-6"
+              data-id="slide11-container-freeradius"
+            >
+              <h2 class="text-2xl text-left">FreeRadius</h2>
+              <p class="text-left text-xl">
+                802.1x 인증을 위한 RADIUS 서버<br />
+                <span class="sub">
+                  RADIUS server for 802.1x authentication
+                </span>
+              </p>
+              <div class="mt-3">
+                <h3 class="text-xl text-left">Entrypoint</h3>
+                <ol class="text-base text-left w-full">
+                  <li>기본 설정 덮어씌우기</li>
+                  <li>ldap, counter, sql 모듈 활성화</li>
+                  <li>환경변수에서 설정 적용</li>
+                </ol>
+              </div>
+              <div class="mt-3 flex gap-6">
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Volume Mounts</h3>
+                  <ul class="text-base w-full">
+                    <li>./config/freeradius&#8203;:/config</li>
+                    <li>
+                      ./scripts/freeradius/init.d<br />:/docker-entrypoint.d
+                    </li>
+                    <li>
+                      ./scripts/freeradius/docker-entrypoint.sh&#8203;:/docker-entrypoint.sh
+                    </li>
+                    <li>./data/certs/freeradius&#8203;:/certs</li>
+                  </ul>
+                </div>
+                <div class="w-1/2 grow-0 shink-0">
+                  <h3 class="text-xl text-left">Port Exposure</h3>
+                  <ul class="text-base w-full">
+                    <li>1812</li>
+                    <li>1813</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>Done?</h1>
+        </section>
+        <section data-auto-animate>
+          <h1>Nope</h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>Password Hash</h1>
+          <img
+            class="m-auto"
+            alt="Supported hash types by authentication methods"
+            src="/assets/password.jpg"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>Password Hash</h1>
+          <img
+            class="m-auto"
+            alt="Windows Supported hash types"
+            src="/assets/windows.jpg"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>Password Hash</h1>
+          <img
+            class="m-auto"
+            alt="Supported hash types by authentication methods"
+            src="/assets/password.jpg"
+          />
+          <p>NT Hash를 따로 저장해야 함</p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>Password Hash</h1>
+          <img
+            class="m-auto"
+            alt="Supported hash types by authentication methods"
+            src="/assets/password.jpg"
+          />
+          <p>NT Hash를 따로 저장해야 함</p>
+          <p>Where? How?</p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>Password Hash</h1>
+          <img
+            alt="List of attributes with password in the attribute name"
+            src="/assets/attributes.jpg"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>SAMBA?</h1>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>SAMBA?</h1>
+          <p>윈도우의 파일공유 프로토콜인 SMB 프로토콜을 재 구현한 것</p>
+          <p class="sub">
+            Re-implementation of the SMB networking protocol<br />which is a
+            protocol for Windows file share
+          </p>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide11">
+          <h1>SAMBA?</h1>
+          <img
+            class="w-2/3 m-auto"
+            alt="samba schema"
+            src="/assets/samba.png"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>동방에 누구?</h1>
+          <span class="sub text-2xl">Who's in the club room?</span>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>동방에 누구?</h1>
+          <h2>RADIUS Accounting</h2>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h2>RADIUS Accounting</h2>
+          <img
+            class="w-2/3 m-auto"
+            alt="Blank Database"
+            src="/assets/database.png"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h2>RADIUS Accounting</h2>
+          <img
+            class="w-2/3 m-auto"
+            alt="radpostauth"
+            src="/assets/radpostauth.png"
+          />
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>Summary</h1>
+          <div class="flex">
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we know</h2>
+            </div>
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we don't know</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>Summary</h1>
+          <div class="flex">
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we know</h2>
+              <ul class="w-full">
+                <li class="mb-3">
+                  접속 시간<br />
+                  <span class="sub">Access Time</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we don't know</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>Summary</h1>
+          <div class="flex">
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we know</h2>
+              <ul class="w-full">
+                <li class="mb-3">
+                  접속 시간<br />
+                  <span class="sub">Access Time</span>
+                </li>
+                <li class="mb-3">
+                  MAC 주소<br />
+                  <span class="sub">MAC Address</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we don't know</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>Summary</h1>
+          <div class="flex">
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we know</h2>
+              <ul class="w-full">
+                <li class="mb-3">
+                  접속 시간<br />
+                  <span class="sub">Access Time</span>
+                </li>
+                <li class="mb-3">
+                  MAC 주소<br />
+                  <span class="sub">MAC Address</span>
+                </li>
+                <li class="mb-3">
+                  사용자 아이디<br />
+                  <span class="sub">User ID</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we don't know</h2>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate data-auto-animate-id="slide12">
+          <h1>Summary</h1>
+          <div class="flex">
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we know</h2>
+              <ul class="w-full">
+                <li class="mb-3">
+                  접속 시간<br />
+                  <span class="sub">Access Time</span>
+                </li>
+                <li class="mb-3">
+                  MAC 주소<br />
+                  <span class="sub">MAC Address</span>
+                </li>
+                <li class="mb-3">
+                  사용자 아이디<br />
+                  <span class="sub">User ID</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-1/2 h-[500px]">
+              <h2 class="text-2xl text-left">What we don't know</h2>
+              <ul class="w-full">
+                <li class="mb-3 text-red-500">
+                  현재 접속 여부<br />
+                  (연결 끊긴 시간)<br />
+                  <span class="sub text-red-400">
+                    Current Connection Status<br />
+                    (Disconnecction Time)
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealHighlight, RevealNotes],
+        transition: "fade",
+      });
+    </script>
+  </body>
 </html>

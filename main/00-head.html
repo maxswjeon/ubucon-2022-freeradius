@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>동아리방에 지금 누가 있나요? | Who is at the club room?</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/maxswjeon.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <script src="plugin/notes/notes.js"></script>
+
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        important: true,
+        theme: {
+          extend: {
+            screens: {
+              print: { raw: "print" },
+            },
+          },
+        },
+      };
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/6a0c65fb34.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Enable Click to all sildes
+      window.addEventListener("load", function () {
+        [...document.querySelectorAll("section")]
+          .filter((e) => !e.classList.contains("no-click"))
+          .forEach((slide) => {
+            slide.addEventListener("click", Reveal.next);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<section data-auto-animate data-auto-animate-id="slide10">
+  <h1>컨테이너 구조 <span class="sub text-2xl">Container Structure</span></h1>
+  <div
+    class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+  >
+    <div
+      class="border-4 border-solid border-white rounded-lg w-full p-6"
+      data-id="slide11-container-certbot"
+    >
+      <h2 class="text-2xl text-left">Certbot</h2>
+      <p class="text-left text-xl">
+        OpenLDAP의 TLS 설정에 필요한 Certificate를 발급하고 갱신한다<br />
+        <span class="sub">
+          Issues and Renews Certificate for TLS settings of OpenLDAP
+        </span>
+      </p>
+      <div class="mt-3">
+        <h3 class="text-xl text-left">Entrypoint</h3>
+        <p class="text-base text-left">/docker-entrypoint.sh</p>
+        <ol class="text-base text-left w-full">
+          <li>Certificate 존재 확인</li>
+          <li>Certificate이 없으면 발급</li>
+          <li>Container 상태를 Healthy로 변경</li>
+          <li>24시간마다 인증서 갱신 시도</li>
+        </ol>
+      </div>
+      <div class="mt-3 flex gap-6">
+        <div class="w-1/2 grow-0 shink-0">
+          <h3 class="text-xl text-left">Volume Mounts</h3>
+          <ul class="text-base w-full">
+            <li>./data/certbot&#8203;:/etc/letsencrypt</li>
+            <li>./data/certs&#8203;:/certs</li>
+            <li>
+              ./scripts/certbot/docker-entrypoint.sh&#8203;:/docker-entrypoint.sh
+            </li>
+          </ul>
+        </div>
+        <div class="w-1/2 grow-0 shink-0">
+          <h3 class="text-xl text-left">Port Exposure</h3>
+          <p class="text-base text-left">None</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

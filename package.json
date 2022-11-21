@@ -8,7 +8,6 @@
   "module": "dist/reveal.esm.js",
   "license": "MIT",
   "scripts": {
-    "test": "gulp test",
     "start": "gulp serve",
     "build": "gulp build"
   },
@@ -37,6 +36,7 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "babel-plugin-transform-html-import-to-string": "0.0.1",
+    "chokidar-cli": "^3.0.0",
     "colors": "^1.4.0",
     "core-js": "^3.12.1",
     "fitty": "^2.3.0",
@@ -96,5 +96,9 @@
       "no-eq-null": 2,
       "no-unused-expressions": 0
     }
+  },
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "carbon-icons": "^7.0.7"
   }
 }

@@ -1,0 +1,45 @@
+<section data-auto-animate data-auto-animate-id="slide10">
+  <h1>컨테이너 구조 <span class="sub text-2xl">Container Structure</span></h1>
+  <div
+    class="flex flex-wrap justify-around p-12 border-4 border-solid border-[#2496ed] rounded-xl w-4/5 h-[600px] m-auto gap-12"
+  >
+    <div
+      class="border-4 border-solid border-white rounded-lg w-full p-6"
+      data-id="slide11-container-freeradius"
+    >
+      <h2 class="text-2xl text-left">FreeRadius</h2>
+      <p class="text-left text-xl">
+        802.1x 인증을 위한 RADIUS 서버<br />
+        <span class="sub"> RADIUS server for 802.1x authentication </span>
+      </p>
+      <div class="mt-3">
+        <h3 class="text-xl text-left">Entrypoint</h3>
+        <ol class="text-base text-left w-full">
+          <li>기본 설정 덮어씌우기</li>
+          <li>ldap, counter, sql 모듈 활성화</li>
+          <li>환경변수에서 설정 적용</li>
+        </ol>
+      </div>
+      <div class="mt-3 flex gap-6">
+        <div class="w-1/2 grow-0 shink-0">
+          <h3 class="text-xl text-left">Volume Mounts</h3>
+          <ul class="text-base w-full">
+            <li>./config/freeradius&#8203;:/config</li>
+            <li>./scripts/freeradius/init.d<br />:/docker-entrypoint.d</li>
+            <li>
+              ./scripts/freeradius/docker-entrypoint.sh&#8203;:/docker-entrypoint.sh
+            </li>
+            <li>./data/certs/freeradius&#8203;:/certs</li>
+          </ul>
+        </div>
+        <div class="w-1/2 grow-0 shink-0">
+          <h3 class="text-xl text-left">Port Exposure</h3>
+          <ul class="text-base w-full">
+            <li>1812</li>
+            <li>1813</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
